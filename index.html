@@ -3,162 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wazin's Awesome World</title>
+    <title>Wazin's World</title>
     <style>
-        /* Fun & Vibrant Global Styles */
+        /* Global Styles & Colors */
         :root {
-            --primary: #FF5964;   /* Fun Coral Red */
-            --secondary: #35A7FF; /* Bright Game Blue */
-            --accent: #6BF1A4;    /* Fresh Art Green */
-            --quran-gold: #FFE74C;/* Star/Quran Gold */
-            --dark: #2E294E;      /* Deep Comic Purple */
-            --light: #F8F9FA;
+            --primary-pink: #ff769f;
+            --secondary-purple: #9b5de5;
+            --mint-green: #00f5d4;
+            --sunny-yellow: #fee440;
+            --dark-text: #2b2d42;
+            --light-bg: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 {
-            font-weight: 800;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--secondary), #81C3D7);
+        header {
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-purple));
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .hero h1 {
+        header h1 {
             font-size: 3.5rem;
-            margin: 0 0 10px 0;
-            text-shadow: 3px 3px 0px var(--dark);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .hero p {
+        header p {
             font-size: 1.5rem;
-            margin: 5px 0;
-            background: rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 30px;
+            font-weight: 300;
+            opacity: 0.9;
         }
 
-        /* Container */
+        /* Main Container */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* Section Headings */
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--dark);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 6px;
-            background: var(--primary);
-            margin: 10px auto 0 auto;
-            border-radius: 10px;
-        }
-
-        /* School Badges */
-        .info-bar {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: -30px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
+        /* Section Styling */
+        section {
             background: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: 3px solid var(--dark);
-            transition: transform 0.2s;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
 
-        .badge:hover {
+        section:hover {
             transform: translateY(-5px);
         }
 
-        /* Grid Layout for Hobbies */
-        .hobby-grid {
+        h2 {
+            color: var(--secondary-purple);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 3px solid var(--sunny-yellow);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Quick Info Grid */
+        .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .card {
-            background: white;
-            border-radius: 24px;
-            padding: 30px;
+        .info-card {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 10px 0px var(--dark);
-            border: 3px solid var(--dark);
-            transition: all 0.2s ease;
+            border-left: 5px solid var(--primary-pink);
         }
 
-        .card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 0px var(--dark);
+        .info-card h3 {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 5px;
         }
 
-        .card .icon {
-            font-size: 4rem;
-            margin-bottom: 15px;
+        .info-card p {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--dark-text);
         }
 
-        /* Custom Card Background Accent Tops */
-        .card.gaming { border-top: 15px solid var(--secondary); }
-        .card.drawing { border-top: 15px solid var(--accent); }
-        .card.books { border-top: 15px solid var(--primary); }
-        .card.quran { border-top: 15px solid var(--quran-gold); }
+        /* Hobbies Grid */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
 
-        /* Quick Art Preview Gallery */
-        .gallery-preview {
-            margin-top: 50px;
-            background: #FFF;
-            border: 3px solid var(--dark);
-            border-radius: 24px;
-            padding: 30px;
+        .hobby-item {
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
             text-align: center;
-            box-shadow: 0 10px 0px var(--dark);
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .placeholder-box {
-            background: #EAEAEA;
-            border: 3px dashed #B5B5B5;
-            height: 200px;
+        .gaming { background-color: #ff5722; }
+        .drawing { background-color: #4caf50; }
+        .fashion { background-color: #e91e63; }
+        .reading { background-color: #00bcd4; }
+
+        /* Achievements Box */
+        .achievement-box {
+            background: linear-gradient(135deg, #fffcf0, #fffae6);
+            border: 2px dashed var(--sunny-yellow);
+            padding: 25px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            color: #777;
-            font-style: italic;
+            gap: 20px;
+        }
+
+        .badge {
+            font-size: 3.5rem;
+        }
+
+        /* Wazin's Fun Complaint Section */
+        .thursday-alert {
+            background-color: #ffebee;
+            border-left: 6px solid #f44336;
+            padding: 20px;
+            border-radius: 10px;
             margin-top: 20px;
         }
 
@@ -166,83 +159,88 @@
         footer {
             text-align: center;
             padding: 40px;
-            margin-top: 60px;
-            background: var(--dark);
-            color: white;
-            font-size: 1.1rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
 
-        footer span {
-            color: var(--primary);
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1>Assalamu Alaikum! I'm Johann 👋</h1>
-        <p>Welcome to my awesome personal website!</p>
-    </section>
+    <!-- Header / Hero -->
+    <header>
+        <h1>Hey, I'm Wazin! ✨</h1>
+        <p>Welcome to my awesome personal website</p>
+    </header>
 
-    <!-- INFO BADGES -->
-    <div class="info-bar">
-        <div class="badge" style="color: var(--secondary);">🏫 Reverie School</div>
-        <div class="badge" style="color: var(--primary);">🎒 Class: KG</div>
-        <div class="badge" style="color: var(--dark);">🎂 Age: 7 Years Awesome</div>
-    </div>
-
-    <!-- MAIN CONTENT -->
     <div class="container">
-        
-        <h2 class="section-title">All About Me & My Passions</h2>
-        
-        <div class="hobby-grid">
-            
-            <!-- Quran Card -->
-            <div class="card quran">
-                <div class="icon">🕌</div>
-                <h3>Quran Everyday</h3>
-                <p>I love reading the Holy Quran every single day to learn beautiful stories and blessings.</p>
-            </div>
 
-            <!-- Gaming Card -->
-            <div class="card gaming">
-                <div class="icon">🎮</div>
-                <h3>Gamer Mode</h3>
-                <p>I am big fan of playing online games! Exploring virtual worlds is my favorite adventure.</p>
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me 🌸</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                Hi there! My full name is <strong>Sadat Afrah WAZIN</strong>. I am a creative, fun-loving 11-year-old who loves exploring new things every day!
+            </p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>School</h3>
+                    <p>REVERIE SCHOOL</p>
+                </div>
+                <div class="info-card">
+                    <h3>Class</h3>
+                    <p>Class Four</p>
+                </div>
+                <div class="info-card">
+                    <h3>Birthday</h3>
+                    <p>17 August</p>
+                </div>
             </div>
+        </section>
 
-            <!-- Drawing Card -->
-            <div class="card drawing">
-                <div class="icon">🎨</div>
-                <h3>Creative Artist</h3>
-                <p>Drawing is my superpower. I love bringing my imagination to life with bright colors.</p>
+        <!-- Achievements Section -->
+        <section id="achievements">
+            <h2>Proud Moments 🌟</h2>
+            <div class="achievement-box">
+                <span class="badge">📖</span>
+                <div>
+                    <h3>Quran Memorization</h3>
+                    <p>I read the Holy Quran every single day. I have successfully completed memorizing the <strong>30th Para</strong>! Alhamdulillah!</p>
+                </div>
             </div>
+        </section>
 
-            <!-- Books Card -->
-            <div class="card books">
-                <div class="icon">📚</div>
-                <h3>Book Explorer</h3>
-                <p>Reading exciting books helps me learn cool facts and discover grand new adventures.</p>
+        <!-- Hobbies Section -->
+        <section id="hobbies">
+            <h2>My Favorite Things to Do 🎨</h2>
+            <p style="margin-bottom: 20px;">When I'm not studying, you can usually find me diving into one of my hobbies:</p>
+            <div class="hobbies-grid">
+                <div class="hobby-item gaming">🎮 Online Games</div>
+                <div class="hobby-item drawing">🎨 Drawing & Art</div>
+                <div class="hobby-item fashion">👗 Fashion Design</div>
+                <div class="hobby-item reading">📚 Reading Books</div>
             </div>
+        </section>
 
-        </div>
-
-        <!-- DRAWING SHOWCASE PLACEHOLDER -->
-        <div class="gallery-preview">
-            <h3>🎨 Johann's Masterpiece Gallery</h3>
-            <p>This is where we can upload photos of Johann's drawings!</p>
-            <div class="placeholder-box">
-                [ Mom & Dad: Replace this with an image tag when you scan or take a photo of his art! ]
+        <!-- Wazin's Thoughts / Daily Life -->
+        <section id="daily-life">
+            <h2>Wazin's Daily Life 🎒</h2>
+            <p>Going to school is great, but there is just one tiny problem...</p>
+            <div class="thursday-alert">
+                <strong>Heavy Backpack Alert! 🎒💥</strong>
+                <p>I have to carry loads of books to school every day. It gets incredibly heavy—<strong>especially on Thursdays!</strong> Someone needs to make lighter books, please!</p>
             </div>
-        </div>
+        </section>
 
     </div>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
-        <p>Made with ❤️ for <strong>Sadat Ahmad Johann</strong></p>
+        <p>Made with ❤️ for Sadat Afrah Wazin | 2026</p>
     </footer>
 
 </body>
